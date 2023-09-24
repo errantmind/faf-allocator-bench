@@ -1,6 +1,3 @@
-mod args;
-mod statics;
-
 use core::hint::black_box;
 
 // #[global_allocator]
@@ -23,23 +20,6 @@ use core::hint::black_box;
 const ALLOCATOR_NAME: &str = "System Allocator";
 
 fn main() {
-   //    {
-   //       // Handle `about` argument
-   //       if statics::ARGS.about {
-   //          print_version();
-   //          return;
-   //       }
-   //    }
-
-   //    {
-   //       // Handle `clear` argument
-   //       if statics::ARGS.clear {
-   //          //json_stats::StatsSet::clear();
-   //          println!("Stats Cleared.");
-   //          return;
-   //       }
-   //    }
-
    assert_eq!(u64::MAX, usize::MAX as u64);
 
    // must be power of 2
