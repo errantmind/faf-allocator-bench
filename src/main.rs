@@ -12,14 +12,20 @@ use core::hint::black_box;
 // static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
 // const ALLOCATOR_NAME: &str = "MiMalloc";
 
+#[global_allocator]
+static GLOBAL: mimalloc_rust::GlobalMiMalloc = mimalloc_rust::GlobalMiMalloc;
+const ALLOCATOR_NAME: &str = "MiMalloc";
+
+
 // #[global_allocator]
 // static GLOBAL: tcmalloc::TCMalloc = tcmalloc::TCMalloc;
 // const ALLOCATOR_NAME: &str = "TCMalloc";
 
 //system allocator
-const ALLOCATOR_NAME: &str = "System Allocator";
+//const ALLOCATOR_NAME: &str = "System Allocator";
 
 fn main() {
+   
    assert_eq!(u64::MAX, usize::MAX as u64);
 
    // must be power of 2
