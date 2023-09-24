@@ -12,20 +12,18 @@ use core::hint::black_box;
 // static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
 // const ALLOCATOR_NAME: &str = "MiMalloc";
 
-#[global_allocator]
-static GLOBAL: mimalloc_rust::GlobalMiMalloc = mimalloc_rust::GlobalMiMalloc;
-const ALLOCATOR_NAME: &str = "MiMalloc";
-
-
 // #[global_allocator]
-// static GLOBAL: tcmalloc::TCMalloc = tcmalloc::TCMalloc;
-// const ALLOCATOR_NAME: &str = "TCMalloc";
+// static GLOBAL: mimalloc_rust::GlobalMiMalloc = mimalloc_rust::GlobalMiMalloc;
+// const ALLOCATOR_NAME: &str = "MiMalloc";
+
+#[global_allocator]
+static GLOBAL: tcmalloc::TCMalloc = tcmalloc::TCMalloc;
+const ALLOCATOR_NAME: &str = "TCMalloc";
 
 //system allocator
 //const ALLOCATOR_NAME: &str = "System Allocator";
 
 fn main() {
-   
    assert_eq!(u64::MAX, usize::MAX as u64);
 
    // must be power of 2
@@ -37,11 +35,19 @@ fn main() {
    let mut ts: Timespec = unsafe { core::mem::MaybeUninit::zeroed().assume_init() };
 
    {
-      black_box(Vec::<u8>::with_capacity(2 << 30));
-   }
-   {
       for &allocation_size in ALLOCATION_SIZES_TO_TEST {
-         let num_allocations = NUM_ALLOCATIONS_BASE / 16; //allocation_size * 2;
+         //if ALLOCATOR_NAME == "Jemalloc" {
+            // use tikv_jemalloc_ctl::{epoch, opt, stats};
+            // let e = epoch::mib().unwrap();
+            // e.advance().unwrap();
+            // let allocated = stats::allocated::mib().unwrap();
+            // let resident = stats::resident::mib().unwrap();
+            // println!("tcache {:?}", opt::tcache::read().unwrap());
+            // println!("tcache_max {:?}", opt::tcache_max::read().unwrap());
+            // println!("background_thread {:?}", opt::background_thread::read().unwrap());
+            // println!("{} bytes allocated/{} bytes resident", allocated.read().unwrap(), resident.read().unwrap());
+         //}
+         let num_allocations = NUM_ALLOCATIONS_BASE / 16;
          let start_time_nanos = get_epoch_nanos(&mut ts);
          for _ in 0..num_allocations {
             black_box(Vec::<u8>::with_capacity(allocation_size));
@@ -52,6 +58,7 @@ fn main() {
       }
    }
 }
+
 
 #[repr(C, align(64))]
 pub struct Timespec {

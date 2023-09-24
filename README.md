@@ -1,6 +1,6 @@
 # faf-allocator-bench
 
-A Rust allocator micro-benchmarking tool for SnMalloc, Jemalloc, TCMalloc, MiMalloc.
+A Rust allocator micro-benchmarking tool for Rust bindings to SnMalloc, Jemalloc, TCMalloc, MiMalloc.
 
 ## Results
 
@@ -81,8 +81,9 @@ TCMalloc    1048576 bytes   268435455 allocs       46 ns per alloc
 
 ### Jemalloc (tikv-jemallocator v0.5.4 (tikv-jemalloc-sys v0.5.4+5.3.0-patched))
 
-[repo](https://crates.io/crates/jemallocator) |
-[upstream](https://github.com/jemalloc/jemalloc)
+[repo](https://github.com/tikv/jemallocator) |
+[upstream](https://github.com/jemalloc/jemalloc) |
+[tuning](https://github.com/jemalloc/jemalloc/blob/dev/TUNING.md)
 
 ```
 Jemalloc          2 bytes   268435455 allocs        4 ns per alloc

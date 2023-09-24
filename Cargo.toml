@@ -36,19 +36,16 @@ overflow-checks = false
 strip = 'symbols'
 
 [dependencies]
-mimalloc = { version = "*" }
-
-mimalloc-rust = "*"
-
+# mimalloc = { version = "*" }
+# mimalloc-rust = "*"
+# snmalloc-rs = { version = "*", default-features = true, features = ["native-cpu"] }
+tcmalloc = { version = "*", default-features = false, features = ["bundled"] }
+# tikv-jemallocator = "*"
+# tikv-jemalloc-ctl = "*"
 
 #mimalloc = { git = "https://github.com/errantmind/mimalloc_rust", version = "*", default-features = false }
 #mimalloc = { path = "/home/errant/dev/min/mimalloc_rust", version = "*", default-features = false } #, features = ["faf_debug"] }
 
-tikv-jemallocator = "*"
-
-snmalloc-rs = "*"
-
-tcmalloc = { version = "*", default-features = false, features = ["bundled"] }
+#tcmalloc = { path = "/home/errant/dev/min/tcmalloc-rs", version = "*", default-features = false, features = ["bundled"] }
 
 
-#once_cell = "*"
