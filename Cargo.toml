@@ -1,0 +1,52 @@
+[package]
+name = "faf-allocator-bench"
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev]
+opt-level = 1
+debug = true
+debug-assertions = true
+overflow-checks = true
+lto = false
+panic = 'unwind'
+incremental = true
+codegen-units = 256
+rpath = false
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+opt-level = 3
+panic = 'abort'
+codegen-units = 1
+lto = "thin"
+debug = false
+incremental = false
+overflow-checks = false
+strip = 'symbols'
+
+[profile.release.package."*"]
+opt-level = 3
+codegen-units = 1
+debug = false
+incremental = false
+overflow-checks = false
+strip = 'symbols'
+
+[dependencies]
+#FFI bindings to better allocator designed by Microsoft
+mimalloc = { version = "*" }
+
+#mimalloc = { git = "https://github.com/errantmind/mimalloc_rust", version = "*", default-features = false }
+#mimalloc = { path = "/home/errant/dev/min/mimalloc_rust", version = "*", default-features = false } #, features = ["faf_debug"] }
+
+tikv-jemallocator = "*"
+
+snmalloc-rs = "*"
+
+tcmalloc = "*"
+
+
+#once_cell = "*"

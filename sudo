@@ -1,0 +1,1 @@
+550 tee /proc/sys/vm/nr_hugepages
