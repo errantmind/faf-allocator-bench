@@ -11,16 +11,16 @@ use core::hint::black_box;
 // static GLOBAL: tikv_jemallocator::Jemalloc = tikv_jemallocator::Jemalloc;
 // const ALLOCATOR_NAME: &str = "Jemalloc";
 
-#[global_allocator]
-static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
-const ALLOCATOR_NAME: &str = "MiMalloc";
+// #[global_allocator]
+// static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
+// const ALLOCATOR_NAME: &str = "MiMalloc";
 
 // #[global_allocator]
 // static GLOBAL: tcmalloc::TCMalloc = tcmalloc::TCMalloc;
 // const ALLOCATOR_NAME: &str = "TCMalloc";
 
-// system allocator
-// const ALLOCATOR_NAME: &str = "System Allocator";
+//system allocator
+const ALLOCATOR_NAME: &str = "System Allocator";
 
 fn main() {
    //    {

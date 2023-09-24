@@ -1,8 +1,31 @@
 # faf-allocator-bench
 
-A Rust allocator benchmarking tool.
+A Rust allocator micro-benchmarking tool for SnMalloc, Jemalloc, TCMalloc, MiMalloc.
 
 ## Results
+
+### System Allocator (no specified allocator) (libc 2.38)
+
+```
+System Allocator          2 bytes   268435455 allocs        8 ns per alloc
+System Allocator          4 bytes   268435455 allocs        8 ns per alloc
+System Allocator          8 bytes   268435455 allocs        8 ns per alloc
+System Allocator         16 bytes   268435455 allocs        8 ns per alloc
+System Allocator         32 bytes   268435455 allocs        8 ns per alloc
+System Allocator         64 bytes   268435455 allocs        9 ns per alloc
+System Allocator        128 bytes   268435455 allocs        9 ns per alloc
+System Allocator        256 bytes   268435455 allocs        9 ns per alloc
+System Allocator        512 bytes   268435455 allocs        9 ns per alloc
+System Allocator       1024 bytes   268435455 allocs        8 ns per alloc
+System Allocator       2048 bytes   268435455 allocs       17 ns per alloc
+System Allocator       4096 bytes   268435455 allocs       17 ns per alloc
+System Allocator      32768 bytes   268435455 allocs       17 ns per alloc
+System Allocator      65536 bytes   268435455 allocs       18 ns per alloc
+System Allocator     131072 bytes   268435455 allocs       18 ns per alloc
+System Allocator     262144 bytes   268435455 allocs       18 ns per alloc
+System Allocator     524288 bytes   268435455 allocs       18 ns per alloc
+System Allocator    1048576 bytes   268435455 allocs       18 ns per alloc
+```
 
 ### SnMalloc (snmalloc-rs v0.3.4 (snmalloc-sys v0.3.4))
 
