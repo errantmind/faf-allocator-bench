@@ -29,7 +29,7 @@ System Allocator    1048576 bytes   268435455 allocs       18 ns per alloc
 
 ### SnMalloc (snmalloc-rs v0.3.4 (snmalloc-sys v0.3.4))
 
-[repo](https://github.com/SchrodingerZhu/snmalloc-rs)
+[repo](https://github.com/SchrodingerZhu/snmalloc-rs) |
 [upstream](https://github.com/microsoft/snmalloc)
 
 ```
@@ -55,7 +55,7 @@ SnMalloc    1048576 bytes   268435455 allocs      391 ns per alloc
 
 ### TCMalloc (tcmalloc v0.3.0)
 
-[repo](https://github.com/jmcomets/tcmalloc-rs)
+[repo](https://github.com/jmcomets/tcmalloc-rs) |
 [upstream](https://github.com/google/tcmalloc)
 
 ```
@@ -81,7 +81,7 @@ TCMalloc    1048576 bytes   268435455 allocs       46 ns per alloc
 
 ### Jemalloc (tikv-jemallocator v0.5.4 (tikv-jemalloc-sys v0.5.4+5.3.0-patched))
 
-[repo](https://crates.io/crates/jemallocator)
+[repo](https://crates.io/crates/jemallocator) |
 [upstream](https://github.com/jemalloc/jemalloc)
 
 ```
@@ -107,7 +107,7 @@ Jemalloc    1048576 bytes   268435455 allocs      209 ns per alloc
 
 ### MiMalloc (mimalloc v0.1.39 (libmimalloc-sys v0.1.35))
 
-[repo](https://github.com/purpleprotocol/mimalloc_rust)
+[repo](https://github.com/purpleprotocol/mimalloc_rust) |
 [upstream](https://github.com/microsoft/mimalloc)
 
 ```
@@ -135,7 +135,7 @@ MiMalloc    1048576 bytes   268435455 allocs      192 ns per alloc
 
 **bindings for mimalloc 1.7.9**
 
-[repo](https://github.com/LemonHX/mimalloc-rust)
+[repo](https://github.com/LemonHX/mimalloc-rust) |
 [upstream](https://github.com/microsoft/mimalloc)
 
 ```
